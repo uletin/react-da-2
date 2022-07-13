@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import NavBar from './components/NavBar';
+import MyButton from './components/MyButton';
+import Footer from './components/Footer';
 
-function App() {
+const App = () => {
+
+  const navHeading = "Navigation Bar"
+  const navText = "SAUDI ABU SALMA"
+
+  const [getNavBarValue, setNavBarValue] = useState("")
+
+  const changeNavBarValue = () => {
+    setNavBarValue("My Contact")
+  }
+
+  const clicked = () => {
+    return alert("button dipencet")
+  }
+
+  const paragraph = () => {
+    return <i> mantap bang </i>
+  } 
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <NavBar navValue={navText} navHeading={navHeading} navBarValue={getNavBarValue}/>
+      <h1>Ini Homepage</h1>
+      <button onClick={() => changeNavBarValue()}>Ubah Navigasi</button>
+      <MyButton clicked={clicked}/>
+      <Footer paragraph={paragraph}/>
+    </>
+  )
 }
 
 export default App;
